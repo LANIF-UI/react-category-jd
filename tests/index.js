@@ -1,6 +1,6 @@
 import 'core-js/es6/map';
-describe('common-api', () => {
+describe('common', () => {
   it('works', () => {
-    expect(1).toEqual(1);
+    
   });
 });

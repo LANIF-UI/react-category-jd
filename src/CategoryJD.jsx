@@ -8,6 +8,7 @@ export default class CategoryJD extends Component {
     className: PropTypes.string,
     dataSource: PropTypes.array,
     link: PropTypes.node,
+    onChange: PropTypes.func,
   }
 
   static defaultProps = {
@@ -25,22 +26,34 @@ export default class CategoryJD extends Component {
     });
   }
 
+  onChange = (menu) => () => {
+    const { onChange } = this.props;
+    if (onChange) onChange(menu);
+  }
+
   render() {
-    const { className, prefixCls, dataSource, link } = this.props;
+    const { className, prefixCls, dataSource, link, onChange } = this.props;
     const { selectedMenu } = this.state;
-    const Link = link || 'a';
+    let Link = link || 'a';
 
     if (dataSource.length === 0) {
       return null;
     }
 
+    let linkTo = link ? 'to' : 'href';
     const secondMenu = dataSource[selectedMenu];
+
+    if (onChange) {
+      Link = 'a';
+      linkTo = 'data-link';
+    }
+
     return (
       <div className={cx(prefixCls, className)}>
         <div className={`${prefixCls}-first`}>
           <ul>
             {dataSource.map((firstMenu, index) => (
-              <li key={index} className="active" onClick={this.onClickMenu(index)}>
+              <li key={index} className={cx({ active: selectedMenu === index })} onClick={this.onClickMenu(index)}>
                 <a>{firstMenu.title}</a>
               </li>
             ))}
@@ -50,7 +63,7 @@ export default class CategoryJD extends Component {
           <div className={`${prefixCls}-second-main`} key={selectedMenu}>
             {secondMenu.image ? (
               <div className={`${prefixCls}-second-title`}>
-                <Link>
+                <Link {...{ [linkTo]: secondMenu.path || '' }} onClick={this.onChange(secondMenu)}>
                   <img src={secondMenu.image} />
                 </Link>
               </div>
@@ -62,7 +75,7 @@ export default class CategoryJD extends Component {
                   {
                     second.children && second.children.map((third, ti) => (
                       <li key={ti}>
-                        <Link>
+                        <Link {...{ [linkTo]: third.path || '' }} onClick={this.onChange(third)}>
                           <img src={third.image} />
                           <span>{third.title}</span>
                         </Link>

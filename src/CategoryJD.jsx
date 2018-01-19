@@ -7,39 +7,40 @@ export default class CategoryJD extends Component {
     prefixCls: PropTypes.string,
     className: PropTypes.string,
     dataSource: PropTypes.array,
-  };
+    link: PropTypes.node,
+  }
 
   static defaultProps = {
     prefixCls: 'category-layout',
     dataSource: [],
-  };
-
-  state = {
-    selectedMenu: 0
   }
 
-  onClickMenu = () => {
-    this.setState({a:1})
+  state = {
+    selectedMenu: 0,
+  }
+
+  onClickMenu = (index) => () => {
+    this.setState({
+      selectedMenu: index,
+    });
   }
 
   render() {
     const { className, prefixCls, dataSource, link } = this.props;
     const { selectedMenu } = this.state;
-    
-    const Link = link ? link : 'a';
+    const Link = link || 'a';
 
     if (dataSource.length === 0) {
       return null;
-    } 
+    }
 
-    const secondMenu = dataSource[selectedMenu]; 
-    
+    const secondMenu = dataSource[selectedMenu];
     return (
       <div className={cx(prefixCls, className)}>
         <div className={`${prefixCls}-first`}>
           <ul>
             {dataSource.map((firstMenu, index) => (
-              <li key={index} className="active" onClick={e => this.onClickMenu(index)}>
+              <li key={index} className="active" onClick={this.onClickMenu(index)}>
                 <a>{firstMenu.title}</a>
               </li>
             ))}
@@ -62,7 +63,7 @@ export default class CategoryJD extends Component {
                     second.children && second.children.map((third, ti) => (
                       <li key={ti}>
                         <Link>
-                          <img src={third.image}  />
+                          <img src={third.image} />
                           <span>{third.title}</span>
                         </Link>
                       </li>

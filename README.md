@@ -4,16 +4,22 @@
 react 仿京东手机端分类组件.
 
 [![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
-[![Test coverage][coveralls-image]][coveralls-url]
 [![gemnasium deps][gemnasium-image]][gemnasium-url]
 [![node version][node-image]][node-url]
 [![npm download][download-image]][download-url]
 
 [npm-image]: http://img.shields.io/npm/v/react-category-jd.svg?style=flat-square
+[npm-url]: http://npmjs.org/package/react-category-jd
+[travis-image]: https://img.shields.io/travis/react-component/react-category-jd.svg?style=flat-square
+[travis-url]: https://travis-ci.org/react-component/react-category-jd
+[coveralls-image]: https://img.shields.io/coveralls/react-component/react-category-jd.svg?style=flat-square
+[coveralls-url]: https://coveralls.io/r/react-component/react-category-jd?branch=master
+[gemnasium-image]: http://img.shields.io/gemnasium/react-component/react-category-jd.svg?style=flat-square
+[gemnasium-url]: https://gemnasium.com/react-component/react-category-jd
+[node-image]: https://img.shields.io/badge/node.js-%3E=_0.11-green.svg?style=flat-square
+[node-url]: http://nodejs.org/download/
 [download-image]: https://img.shields.io/npm/dm/react-category-jd.svg?style=flat-square
 [download-url]: https://npmjs.org/package/react-category-jd
-
 ## install
 
 [![react-category-jd](https://nodei.co/npm/react-category-jd.png)](https://npmjs.org/package/react-category-jd)
@@ -107,6 +113,12 @@ ReactDOM.render(<CategoryJD dataSource={dataSource} />, container);
         <td>Function</td>
         <td></td>
         <td>如果设置onChange后，不会走path跳转，需要手动执行相应逻辑</td>
+      </tr>
+      <tr>
+        <td>alias</td>
+        <td>object</td>
+        <td></td>
+        <td>可以指定title, path, image, children的别名，如alias={title: 'name', path: 'url'}</td>
       </tr>
     </tbody>
 </table>

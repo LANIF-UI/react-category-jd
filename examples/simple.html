@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>simple.js - example - react-category-jd@1.0.1</title>
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="https://a.alipayobjects.com/normalize.css/3.0.1/normalize.css" rel="stylesheet"/>
+  <style>
+    .highlight pre {
+      padding: .8em 1em;
+      font: 14px/20px Consolas, Monaco, 'Andale Mono', monospace;
+      border: 1px solid #e5e8ec;
+      border-radius: 3px;
+      background-color: #21221d;
+      background-image: -webkit-linear-gradient(#21221d 50%, #272822 50%);
+      background-image: -moz-linear-gradient(#21221d 50%, #272822 50%);
+      background-image: -ms-linear-gradient(#21221d 50%, #272822 50%);
+      background-image: -o-linear-gradient(#21221d 50%, #272822 50%);
+      background-image: linear-gradient(#21221d 50%, #272822 50%);
+      background-size: 40px 40px;
+      background-origin: content-box;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .highlight pre > code {
+      font-family: inherit;
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      word-spacing: normal;
+      vertical-align: 2px;
+      display: block;
+      -moz-tab-size: 2;
+      -o-tab-size: 2;
+      tab-size: 2;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      color: #E5E5C2;
+    }
+  </style>
+  <style>
+/*
+
+Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #23241f;
+  -webkit-text-size-adjust: none;
+}
+
+.hljs,
+.hljs-tag,
+.css .hljs-rule,
+.css .hljs-value,
+.aspectj .hljs-function,
+.css .hljs-function
+.hljs-preprocessor,
+.hljs-pragma {
+  color: #f8f8f2;
+}
+
+.hljs-strongemphasis,
+.hljs-strong,
+.hljs-emphasis {
+  color: #a8a8a2;
+}
+
+.hljs-bullet,
+.hljs-blockquote,
+.hljs-horizontal_rule,
+.hljs-number,
+.hljs-regexp,
+.alias .hljs-keyword,
+.hljs-literal,
+.hljs-hexcolor {
+  color: #ae81ff;
+}
+
+.hljs-code,
+.hljs-title,
+.css .hljs-class,
+.hljs-class .hljs-title:last-child {
+  color: #a6e22e;
+  /*color: #e6db74;*/
+}
+
+.hljs-link_url {
+  font-size: 80%;
+}
+
+.hljs-strong,
+.hljs-strongemphasis {
+  font-weight: bold;
+}
+
+.hljs-emphasis,
+.hljs-strongemphasis,
+.hljs-class .hljs-title:last-child,
+.hljs-typename {
+  font-style: italic;
+}
+
+.hljs-keyword,
+.ruby .hljs-class .hljs-keyword:first-child,
+.ruby .hljs-function .hljs-keyword,
+.hljs-function,
+.hljs-change,
+.hljs-winutils,
+.hljs-flow,
+.nginx .hljs-title,
+.tex .hljs-special,
+.hljs-header,
+.hljs-symbol,
+.hljs-symbol .hljs-string,
+.hljs-tag .hljs-title,
+.hljs-value,
+.alias .hljs-keyword:first-child,
+.css .hljs-tag,
+.css .unit,
+.css .hljs-important {
+  color: #f92672;
+}
+
+.hljs-function .hljs-keyword,
+.hljs-class .hljs-keyword:first-child,
+.hljs-aspect .hljs-keyword:first-child,
+.hljs-constant,
+.hljs-typename,
+.hljs-name,
+.css .hljs-attribute {
+  color: #66d9ef;
+}
+
+.hljs-variable,
+.hljs-params,
+.hljs-class .hljs-title,
+.hljs-aspect .hljs-title {
+  color: #f8f8f2;
+}
+
+.hljs-tag .hljs-value,
+.hljs-string,
+.css .hljs-id,
+.hljs-subst,
+.hljs-type,
+.ruby .hljs-class .hljs-parent,
+.django .hljs-template_tag,
+.django .hljs-variable,
+.smalltalk .hljs-class,
+.django .hljs-filter .hljs-argument,
+.smalltalk .hljs-localvars,
+.smalltalk .hljs-array,
+.hljs-attr_selector,
+.hljs-pseudo,
+.hljs-addition,
+.hljs-stream,
+.hljs-envvar,
+.apache .hljs-tag,
+.apache .hljs-cbracket,
+.tex .hljs-command,
+.hljs-prompt,
+.hljs-link_label,
+.hljs-link_url {
+  color: #e6db74;
+}
+
+.hljs-comment,
+.hljs-annotation,
+.hljs-decorator,
+.hljs-pi,
+.hljs-doctype,
+.hljs-deletion,
+.hljs-shebang,
+.apache .hljs-sqbracket,
+.tex .hljs-formula {
+  color: #75715e;
+}
+
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata,
+.xml .php,
+.php .xml {
+  opacity: 0.5;
+}
+/***********/
+.hljs-attribute{
+  color: #a6e22e;
+}
+/***** node keyword ******/
+.hljs-built_in{
+  color: #3396dc;
+  font-weight: bold;
+}
+  </style>
+  <style>
+    .container {
+      width: 86%;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .header p {
+      color: #666;
+    }
+
+    .example {
+      padding: 20px 0;
+    }
+  </style>
+
+  <script>
+    // Console-polyfill. MIT license.
+    // https://github.com/paulmillr/console-polyfill
+    // Make it safe to do console.log() always.
+    (function (global) {
+      'use strict';
+      global.console = global.console || {};
+      var con = global.console;
+      var prop, method;
+      var empty = {};
+      var dummy = function () {
+      };
+      var properties = 'memory'.split(',');
+      var methods = ('assert,clear,count,debug,dir,dirxml,error,exception,group,' +
+      'groupCollapsed,groupEnd,info,log,markTimeline,profile,profiles,profileEnd,' +
+      'show,table,time,timeEnd,timeline,timelineEnd,timeStamp,trace,warn').split(',');
+      while (prop = properties.pop()) con[prop] = con[prop] || empty;
+      while (method = methods.pop()) con[method] = con[method] || dummy;
+    })(typeof window === 'undefined' ? this : window);
+    // Using `this` for web workers while maintaining compatibility with browser
+    // targeted script loaders such as Browserify or Webpack where the only way to
+    // get to the global object is via `window`.
+  </script>
+  <!--[if lt IE 9]>
+  <script src="https://a.alipayobjects.com/??es5-shim/4.0.5/es5-shim.js,es5-shim/4.0.5/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js"></script>
+  <![endif]-->
+  <script src="https://as.alipayobjects.com/g/component/??modernizr/2.8.3/modernizr.js,fastclick/1.0.6/fastclick.js"></script>
+  <script>
+  if(!window.Promise) {
+    document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
+  }
+  </script>
+  <link rel="stylesheet" href="simple.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>react-category-jd@1.0.1</h1>
+
+      <p>react mobile category component similar jd</p>
+    </div>
+    <div class="example" id="__react-content"></div>
+
+    <div class="highlight"><pre><code language="js"><span class="hljs-comment">/* eslint-disable no-console */</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">'../assets/index.less'</span>;
+<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>;
+<span class="hljs-keyword">import</span> CategoryJD <span class="hljs-keyword">from</span> <span class="hljs-string">'../src/CategoryJD'</span>;
+
+<span class="hljs-keyword">const</span> dataSource = <span class="hljs-built_in">Array</span>(<span class="hljs-number">20</span>).fill(<span class="hljs-number">0</span>).map((_, index) =&gt; (
+  {
+    title: <span class="hljs-string">`汽车用品<span class="hljs-subst">${index}</span>`</span>,
+    path: <span class="hljs-string">'/abc'</span>,
+    image:
+      <span class="hljs-string">'//img13.360buyimg.com/mcoss/jfs/t13768/304/553456768/42679/21bc3c35/5a28f1c1N226249b0.jpg'</span>,
+    children: [{
+      title: <span class="hljs-string">`热卖推荐<span class="hljs-subst">${index}</span>`</span>,
+      children: [
+        { title: <span class="hljs-string">`汽车坐垫<span class="hljs-subst">${index}</span>`</span>, path: <span class="hljs-string">'/abc'</span>, image: <span class="hljs-string">'//img20.360buyimg.com/focus/jfs/t13861/165/1416050485/4023/7a99270b/5a1fb902N806b102c.jpg'</span> },
+        { title: <span class="hljs-string">`行车记录仪<span class="hljs-subst">${index}</span>`</span>, path: <span class="hljs-string">'/abc'</span>, image: <span class="hljs-string">'//img30.360buyimg.com/focus/jfs/t12901/240/1394851486/8943/454985f7/5a1fb8fcNb81047cc.jpg'</span> },
+        { title: <span class="hljs-string">`机油<span class="hljs-subst">${index}</span>`</span>, path: <span class="hljs-string">'/abc'</span>, image: <span class="hljs-string">'//img13.360buyimg.com/focus/jfs/t12934/187/1360887703/3624/2773362c/5a1fb8f6N7d4de465.jpg'</span> },
+        { title: <span class="hljs-string">`洗车水枪<span class="hljs-subst">${index}</span>`</span>, path: <span class="hljs-string">'/abc'</span>, image: <span class="hljs-string">'//img12.360buyimg.com/focus/jfs/t12775/362/1793763591/8646/9054789/5a28b10cN62861b9b.jpg'</span> },
+        { title: <span class="hljs-string">`应急救援<span class="hljs-subst">${index}</span>`</span>, path: <span class="hljs-string">'/abc'</span>, image: <span class="hljs-string">'//img14.360buyimg.com/focus/jfs/t15556/93/149991245/6163/3387b1e9/5a28b106N59344f7a.png'</span> },
+      ],
+    }, {
+      title: <span class="hljs-string">`全新整车<span class="hljs-subst">${index}</span>`</span>,
+      children: [
+        { title: <span class="hljs-string">`微型车<span class="hljs-subst">${index}</span>`</span>, path: <span class="hljs-string">'/abc'</span>, image: <span class="hljs-string">'//img12.360buyimg.com/focus/jfs/t12337/75/1409309351/5500/b04a2642/5a1fb8eeN05d4163e.jpg'</span> },
+        { title: <span class="hljs-string">`小型车<span class="hljs-subst">${index}</span>`</span>, path: <span class="hljs-string">'/abc'</span>, image: <span class="hljs-string">'//img12.360buyimg.com/focus/jfs/t13081/260/1376706334/6999/c4bff110/5a1fb8e9Nd2feb53d.jpg'</span> },
+        { title: <span class="hljs-string">`紧凑型车<span class="hljs-subst">${index}</span>`</span>, path: <span class="hljs-string">'/abc'</span>, image: <span class="hljs-string">'//img11.360buyimg.com/focus/jfs/t13072/223/1436827028/5429/ae4f87d0/5a1fb8e2N6eba4559.jpg'</span> },
+        { title: <span class="hljs-string">`中型车<span class="hljs-subst">${index}</span>`</span>, path: <span class="hljs-string">'/abc'</span>, image: <span class="hljs-string">'//img11.360buyimg.com/focus/jfs/t15643/17/110288415/4137/d6db0406/5a28b0f9N900e6ad6.jpg'</span> },
+        { title: <span class="hljs-string">`SUV<span class="hljs-subst">${index}</span>`</span>, path: <span class="hljs-string">'/abc'</span>, image: <span class="hljs-string">'//img20.360buyimg.com/focus/jfs/t12709/19/1797741968/5030/aa3b63bd/5a28b0f0N5541a6c1.jpg'</span> },
+        { title: <span class="hljs-string">`中大型车<span class="hljs-subst">${index}</span>`</span>, path: <span class="hljs-string">'/abc'</span>, image: <span class="hljs-string">'//img10.360buyimg.com/focus/jfs/t15643/11/99628246/3283/c304231f/5a28b0f5N74773599.jpg'</span> },
+      ],
+    }, {
+      title: <span class="hljs-string">`热卖推荐<span class="hljs-subst">${index}</span>`</span>,
+      children: [
+        { title: <span class="hljs-string">`汽车坐垫<span class="hljs-subst">${index}</span>`</span>, path: <span class="hljs-string">'/abc'</span>, image: <span class="hljs-string">'//img20.360buyimg.com/focus/jfs/t13861/165/1416050485/4023/7a99270b/5a1fb902N806b102c.jpg'</span> },
+        { title: <span class="hljs-string">`行车记录仪<span class="hljs-subst">${index}</span>`</span>, path: <span class="hljs-string">'/abc'</span>, image: <span class="hljs-string">'//img30.360buyimg.com/focus/jfs/t12901/240/1394851486/8943/454985f7/5a1fb8fcNb81047cc.jpg'</span> },
+        { title: <span class="hljs-string">`机油<span class="hljs-subst">${index}</span>`</span>, path: <span class="hljs-string">'/abc'</span>, image: <span class="hljs-string">'//img13.360buyimg.com/focus/jfs/t12934/187/1360887703/3624/2773362c/5a1fb8f6N7d4de465.jpg'</span> },
+        { title: <span class="hljs-string">`洗车水枪<span class="hljs-subst">${index}</span>`</span>, path: <span class="hljs-string">'/abc'</span>, image: <span class="hljs-string">'//img12.360buyimg.com/focus/jfs/t12775/362/1793763591/8646/9054789/5a28b10cN62861b9b.jpg'</span> },
+        { title: <span class="hljs-string">`应急救援<span class="hljs-subst">${index}</span>`</span>, path: <span class="hljs-string">'/abc'</span>, image: <span class="hljs-string">'//img14.360buyimg.com/focus/jfs/t15556/93/149991245/6163/3387b1e9/5a28b106N59344f7a.png'</span> },
+      ],
+    }],
+  }
+));
+
+ReactDOM.render((
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{</span> <span class="hljs-attribute">height:</span> <span class="hljs-attribute">500</span>, <span class="hljs-attribute">width:</span> <span class="hljs-attribute">400</span>, <span class="hljs-attribute">margin:</span> '<span class="hljs-attribute">0</span> <span class="hljs-attribute">auto</span>' }}&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">CategoryJD</span> <span class="hljs-attribute">dataSource</span>=<span class="hljs-value">{dataSource}</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>)</span>, <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'__react-content'</span>)
+);
+</code></pre></div>
+  </div>
+  <a href="https://github.com/LANIF-UI/react-category-jd">
+    <img style="position: absolute; top: 0; right: 0; border: 0;"
+         src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
+         alt="Fork me on GitHub"
+         data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+  </a>
+  <script>FastClick.attach(document.body);</script>
+  <script src="../common.js?nowrap"></script>
+  <script src="simple.js?nowrap"></script>
+</body>
+
+</html>

@@ -129,5 +129,3 @@ ReactDOM.render(<CategoryJD dataSource={dataSource} />, container);
 npm install
 npm start
 ```
-
-Online demo: http://react-component.github.io/react-category-jd/examples/

@@ -1,6 +1,6 @@
 {
   "name": "react-category-jd",
-  "version": "1.0.1",
+  "version": "1.0.6",
   "description": "react mobile category component similar jd",
   "keywords": [
     "react",
@@ -21,8 +21,8 @@
     "url": "https://github.com/LANIF-UI/react-category-jd/issues"
   },
   "license": "MIT",
-  "main": "./lib",
-  "module": "./es",
+  "main": "lib/index",
+  "module": "es/index",
   "config": {
     "port": 8000,
     "entry": {
@@ -33,6 +33,7 @@
     }
   },
   "scripts": {
+    "dist": "rc-tools run dist",
     "build": "rc-tools run build",
     "gh-pages": "rc-tools run gh-pages",
     "start": "rc-tools run server",

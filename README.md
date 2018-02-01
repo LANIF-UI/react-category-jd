@@ -23,7 +23,7 @@ react 仿京东手机端分类组件.
 ## install
 
 [![react-category-jd](https://nodei.co/npm/react-category-jd.png)](https://npmjs.org/package/react-category-jd)
-
+![](https://ucarecdn.com/391169cb-3ccb-4744-97c0-95087fd9037f/reactcategoryjd.gif)
 ## Usage
 
 ```js
